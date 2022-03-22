@@ -4,7 +4,7 @@ import numpy as np
 def vec_mult(vec1, vec2):
     len_vec1 = len(vec1)
     len_vec2 = len(vec2)
-    mult = sum(map(lambda x, y: x*y, vec1, vec2))
+    mult = sum(map(lambda x, y: x * y, vec1, vec2))
     return len_vec1, len_vec2, mult
 
 
@@ -23,17 +23,17 @@ def mat_trans(matrix):
 
 def mat_add_mult(m1, m2):
     addition = [[m1[i][j] + m2[i][j] for j in range(len(m1[0]))] for i in range(len(m1))]
-    multiplication = [[sum(a*b for a, b in zip(m1_row, m2_col)) for m2_col in zip(*m2)] for m1_row in m1]
+    multiplication = [[sum(a * b for a, b in zip(m1_row, m2_col)) for m2_col in zip(*m2)] for m1_row in m1]
     return addition, multiplication
 
 
 def wc(file_name):
-    counts = {'lines': 0, 'words': 0, 'characters': 0}
+    counts = {"lines": 0, "words": 0, "characters": 0}
     with open(file_name) as f:
         for line in f:
-            counts['lines'] +=1
-            counts['words'] += len(line)
-            counts['characters'] += len(line.split())
+            counts["lines"] += 1
+            counts["words"] += len(line)
+            counts["characters"] += len(line.split())
         for key, value in counts.items():
             print(f"{key}:{value}")
 
@@ -61,4 +61,3 @@ def tail(file_name):
     with open(file_name) as f:
         reversed_lines = list(reversed(f.readlines()))
         print("".join(list(reversed(reversed_lines[:10]))))
-
